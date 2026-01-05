@@ -40,14 +40,13 @@ const FeaturedProduction: React.FC = () => {
           {/* Video Player */}
           <div className="w-full lg:w-3/5 order-1 lg:order-2">
             <div className="relative aspect-video w-full bg-zinc-950 border border-zinc-800 group overflow-hidden shadow-2xl grayscale-[0.3] hover:grayscale-0 transition-all duration-700">
-              {/* Using a clean, parameter-free URL to resolve "Error 153" */}
+              {/* Google Drive Embed for Yellow Property Management */}
               <iframe 
-                src="https://www.youtube.com/embed/iffIaziwp1M" 
+                src="https://drive.google.com/file/d/1PQOB3FlKpyYnI9XE0vMV7kNdz6TGLOVA/preview" 
                 className="absolute inset-0 w-full h-full border-0"
                 title="Yellow Property Management Walking Tour"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
-                referrerPolicy="no-referrer"
               ></iframe>
               {/* Overlay Decoration */}
               <div className="absolute top-4 right-4 z-10 pointer-events-none">

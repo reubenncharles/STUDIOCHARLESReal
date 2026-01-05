@@ -2,6 +2,7 @@
 import React from 'react';
 import WorkGrid from '../components/WorkGrid';
 import FeaturedProduction from '../components/FeaturedProduction';
+import SportsProduction from '../components/SportsProduction';
 
 const Portfolio: React.FC = () => {
   return (
@@ -18,8 +19,11 @@ const Portfolio: React.FC = () => {
         </div>
       </div>
 
-      {/* Featured Production Section */}
+      {/* Featured Production Section 01 */}
       <FeaturedProduction />
+
+      {/* Featured Production Section 02 - Burwood FC */}
+      <SportsProduction />
       
       <div className="max-w-7xl mx-auto px-6 md:px-12 mt-32">
         <div className="mb-20 text-center">

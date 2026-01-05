@@ -22,8 +22,8 @@ const Contact: React.FC<ContactProps> = ({ onOpenWizard }) => {
             <div className="space-y-4">
               <div className="flex flex-col">
                 <span className="text-[10px] uppercase text-zinc-500 tracking-widest mb-1">Email</span>
-                <a href="mailto:hello@studiocharles.com.au" className="text-xl md:text-2xl font-bold hover:text-zinc-400 transition-colors">
-                  hello@studiocharles.com.au
+                <a href="mailto:studiocharlesau@gmail.com" className="text-xl md:text-2xl font-bold hover:text-zinc-400 transition-colors">
+                  studiocharlesau@gmail.com
                 </a>
               </div>
               <div className="flex flex-col">

@@ -105,7 +105,7 @@ const ChatCharles: React.FC = () => {
       }
     } catch (error) {
       console.error(error);
-      setMessages(prev => [...prev, { role: 'model', text: "Systems are heavy right now. Reach out directly at hello@studiocharles.com.au if you need an immediate quote." }]);
+      setMessages(prev => [...prev, { role: 'model', text: "Systems are heavy right now. Reach out directly at studiocharlesau@gmail.com if you need an immediate quote." }]);
     } finally {
       setIsTyping(false);
     }
