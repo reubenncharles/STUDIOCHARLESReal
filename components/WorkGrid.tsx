@@ -56,14 +56,6 @@ const VideoPlayer: React.FC<{ project: Project; isActive: boolean }> = ({ projec
       
       <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-black via-black/95 via-black/40 to-transparent z-10 pointer-events-none" />
 
-      <div className="absolute bottom-10 left-8 z-20 pointer-events-none">
-        <span className="text-[10px] font-black uppercase tracking-[0.5em] text-white/40 mb-1 block">
-          {project.platform === 'youtube' ? 'Cinematic Edit' : 'Series 24.1'}
-        </span>
-        <p className="text-xl font-black uppercase tracking-tighter text-white drop-shadow-2xl italic">
-          {project.title}
-        </p>
-      </div>
     </div>
   );
 };

@@ -4,6 +4,7 @@ import Hero from '../components/Hero';
 import Clients from '../components/Clients';
 import WorkGrid from '../components/WorkGrid';
 import FeaturedProduction from '../components/FeaturedProduction';
+import Testimonials from '../components/Testimonials';
 import SportsProduction from '../components/SportsProduction';
 
 interface HomeProps {
@@ -25,6 +26,9 @@ const Home: React.FC<HomeProps> = ({ onStartProject }) => {
       {/* Featured Production 02 - Sports */}
       <SportsProduction />
 
+
+      {/* Testimonials */}
+      <Testimonials />
       {/* Portfolio Feed integrated into Home */}
       <section id="work" className="py-16 md:py-32 px-4 md:px-12 bg-black border-t border-zinc-900">
         <div className="max-w-7xl mx-auto">

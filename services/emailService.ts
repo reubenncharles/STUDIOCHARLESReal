@@ -1,6 +1,4 @@
 
-import { GoogleGenAI, Type } from "@google/genai";
-
 export interface ProjectQuote {
   summary: string;
   estimatedTimeline: string;
@@ -50,7 +48,7 @@ export const calculateProjectFinancials = (details: {
   if (!details.location.toLowerCase().includes('cbd')) travel = 120;
 
   const subtotal = production + post + licensing + travel;
-  
+
   // 5. Multipliers (Urgency)
   let multiplier = 1.0;
   if (details.urgency.includes('Priority')) multiplier = 1.15;
@@ -70,6 +68,29 @@ export const calculateProjectFinancials = (details: {
   return { total, deposit, breakdown };
 };
 
+const NICHES: Record<string, { package: string; summary: string }> = {
+  'Real Estate': {
+    package: 'The Property Showcase Elite',
+    summary: 'A high-impact property tour designed to drive inquiries and highlight architectural features with premium grading.'
+  },
+  'Sports Doc': {
+    package: 'The Athlete’s Narrative',
+    summary: 'A fast-paced, emotive documentary style that captures the intensity and passion of the sport.'
+  },
+  'Brand Identity': {
+    package: 'The Core Identity Series',
+    summary: 'A comprehensive brand positioning suite that establishes authority and connects with your target audience.'
+  },
+  'TikTok/Viral': {
+    package: 'The Viral Momentum Pack',
+    summary: 'Optimized for high retention and algorithm performance, designed to hook viewers in the first 3 seconds.'
+  },
+  'Event Aftermovie': {
+    package: 'The Event Highlights Cut',
+    summary: 'A dynamic recap capturing the energy and key moments, perfect for promoting future events.'
+  }
+};
+
 export const generateProjectQuote = async (details: {
   name: string;
   projectType: string;
@@ -84,52 +105,22 @@ export const generateProjectQuote = async (details: {
   // First, calculate the deterministic financials
   const financials = calculateProjectFinancials(details);
 
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-  
-  // Prompt Gemini to write the NARRATIVE based on the FIXED financials
-  const prompt = `
-    As the Creative Director at Studio Charles, generate the professional narrative for a project quote.
-    The math is already finalized; your job is to create a compelling summary and strategic roadmap.
+  const niche = NICHES[details.projectType] || {
+    package: 'The Studio Charles Custom',
+    summary: 'A tailored video production strategy designed to meet your specific goals with premium quality execution.'
+  };
 
-    PROJECT DETAILS:
-    - Client: ${details.name}
-    - Niche: ${details.projectType}
-    - Total Estimate: $${financials.total} AUD
-    - Deposit: $${financials.deposit} AUD
-    - Vision: ${details.description}
-    - Urgency: ${details.urgency}
-
-    REQUIREMENTS:
-    1. Create a "Suggested Package Name" that sounds high-end and specific to their niche.
-    2. Write a 2-sentence professional summary of the visual approach.
-    3. Generate 4 clear "Next Steps" for a strategic roadmap.
-    4. Provide a realistic estimated timeline based on ${details.urgency}.
-
-    Format the response strictly as a JSON object.
-  `;
-
-  const response = await ai.models.generateContent({
-    model: "gemini-3-flash-preview",
-    contents: prompt,
-    config: {
-      responseMimeType: "application/json",
-      responseSchema: {
-        type: Type.OBJECT,
-        properties: {
-          summary: { type: Type.STRING },
-          estimatedTimeline: { type: Type.STRING },
-          suggestedPackage: { type: Type.STRING },
-          nextSteps: { 
-            type: Type.ARRAY, 
-            items: { type: Type.STRING } 
-          }
-        },
-        required: ["summary", "estimatedTimeline", "suggestedPackage", "nextSteps"]
-      }
-    }
-  });
-
-  const narrative = JSON.parse(response.text);
+  const narrative = {
+    summary: niche.summary,
+    estimatedTimeline: details.urgency,
+    suggestedPackage: niche.package,
+    nextSteps: [
+      "Initial Consultation & Briefing",
+      "Pre-production & Storyboarding",
+      "Production/Filming Phase",
+      "Post-production & Delivery"
+    ]
+  };
 
   return {
     ...narrative,
@@ -140,7 +131,7 @@ export const generateProjectQuote = async (details: {
 };
 
 export const sendLeadEmail = async (formData: any, quote: ProjectQuote) => {
-  const FORMSPREE_ID = 'your_id_here'; 
+  const FORMSPREE_ID = import.meta.env.VITE_FORMSPREE_ID;
   const endpoint = `https://formspree.io/f/${FORMSPREE_ID}`;
 
   const payload = {

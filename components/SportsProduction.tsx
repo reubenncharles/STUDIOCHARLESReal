@@ -13,7 +13,7 @@ const SportsProduction: React.FC = () => {
               <iframe 
                 src="https://drive.google.com/file/d/1bdp7KcNNI-z4ghgUUymsj9Y-RLCNtcUW/preview" 
                 className="absolute inset-0 w-full h-full border-0"
-                title="Burwood FC Season Recap"
+                title="Burwood FC Grand Final"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>
@@ -45,7 +45,7 @@ const SportsProduction: React.FC = () => {
               <div className="grid grid-cols-2 gap-4">
                 <div className="p-4 border border-zinc-900 bg-black">
                   <span className="text-[8px] uppercase tracking-widest text-zinc-500 block mb-1">Focus</span>
-                  <span className="text-[10px] font-bold text-white uppercase">Season Recap</span>
+                  <span className="text-[10px] font-bold text-white uppercase">Grand Final</span>
                 </div>
                 <div className="p-4 border border-zinc-900 bg-black">
                   <span className="text-[8px] uppercase tracking-widest text-zinc-500 block mb-1">Editing</span>
@@ -56,7 +56,7 @@ const SportsProduction: React.FC = () => {
               <div className="pt-4">
                 <div className="flex items-center gap-4 group cursor-default">
                   <div className="w-12 h-px bg-zinc-800 group-hover:w-20 transition-all duration-500"></div>
-                  <span className="text-[10px] uppercase tracking-widest font-black italic text-zinc-400 group-hover:text-white transition-colors">NPL Season Review 2024</span>
+                  <span className="text-[10px] uppercase tracking-widest font-black italic text-zinc-400 group-hover:text-white transition-colors">U14 Div 2 Grand Final</span>
                 </div>
               </div>
             </div>
