@@ -4,15 +4,18 @@ const Clients: React.FC = () => {
   const clients = [
     {
       name: "Yellow Property Management",
-      logo: "/logos/yellow-property.png"
+      logo: "/logos/yellow-property.png",
+      height: "h-8 md:h-10"
     },
     {
       name: "Burwood Football Club",
-      logo: "/logos/burwood-fc.png"
+      logo: "/logos/burwood-fc.png",
+      height: "h-12 md:h-14"
     },
     {
       name: "aideatr",
-      logo: "/logos/aideatr.png"
+      logo: "/logos/aideatr.png",
+      height: "h-8 md:h-10"
     }
   ];
 
@@ -35,7 +38,7 @@ const Clients: React.FC = () => {
             <img
               src={client.logo}
               alt={client.name}
-              className="h-12 md:h-14 w-auto object-contain"
+              className={`${client.height} w-auto object-contain`}
             />
           </div>
         ))}
