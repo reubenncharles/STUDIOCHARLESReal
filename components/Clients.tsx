@@ -1,24 +1,6 @@
 import React from 'react';
 
 const Clients: React.FC = () => {
-  const clients = [
-    {
-      name: "Yellow Property Management",
-      logo: "/logos/yellow-property.png",
-      height: "h-8 md:h-10"
-    },
-    {
-      name: "Burwood Football Club",
-      logo: "/logos/burwood-fc.png",
-      height: "h-12 md:h-14"
-    },
-    {
-      name: "aideatr",
-      logo: "/logos/aideatr.png",
-      height: "h-8 md:h-10"
-    }
-  ];
-
   return (
     <div className="max-w-7xl mx-auto px-6 md:px-12">
       {/* Section Header */}
@@ -30,18 +12,35 @@ const Clients: React.FC = () => {
 
       {/* Client Logos */}
       <div className="flex flex-col md:flex-row justify-center items-center gap-12 md:gap-16 lg:gap-24">
-        {clients.map((client) => (
-          <div
-            key={client.name}
-            className="opacity-70 hover:opacity-100 transition-opacity duration-300"
-          >
-            <img
-              src={client.logo}
-              alt={client.name}
-              className={`${client.height} w-auto object-contain`}
-            />
-          </div>
-        ))}
+        {/* Yellow Property - wider logo, needs less height */}
+        <div className="opacity-70 hover:opacity-100 transition-opacity duration-300">
+          <img
+            src="/logos/yellow-property.png"
+            alt="Yellow Property Management"
+            style={{ height: '32px' }}
+            className="w-auto object-contain"
+          />
+        </div>
+
+        {/* Burwood FC - circular badge, needs more height */}
+        <div className="opacity-70 hover:opacity-100 transition-opacity duration-300">
+          <img
+            src="/logos/burwood-fc.png"
+            alt="Burwood Football Club"
+            style={{ height: '48px' }}
+            className="w-auto object-contain"
+          />
+        </div>
+
+        {/* aideatr - similar to Yellow */}
+        <div className="opacity-70 hover:opacity-100 transition-opacity duration-300">
+          <img
+            src="/logos/aideatr.png"
+            alt="aideatr"
+            style={{ height: '28px' }}
+            className="w-auto object-contain"
+          />
+        </div>
       </div>
     </div>
   );
