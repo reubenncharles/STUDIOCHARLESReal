@@ -57,30 +57,31 @@ const AideatrProduction: React.FC = () => {
                 />
               ) : (
                 <>
-                  {/* Thumbnail/Placeholder with gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-950/30 via-zinc-900 to-black">
-                    {/* Animated background pattern */}
-                    <div className="absolute inset-0 opacity-20">
-                      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-emerald-500/20 rounded-full blur-3xl animate-pulse" />
-                      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-emerald-600/10 rounded-full blur-3xl animate-pulse delay-1000" />
-                    </div>
+                  {/* Thumbnail with gradient overlay */}
+                  <div className="absolute inset-0">
+                    {project.thumbnailUrl ? (
+                      <img
+                        src={project.thumbnailUrl}
+                        alt={project.title}
+                        className="absolute inset-0 w-full h-full object-cover"
+                      />
+                    ) : (
+                      /* Fallback animated gradient for projects without thumbnails */
+                      <div className="absolute inset-0 bg-gradient-to-br from-emerald-950/30 via-zinc-900 to-black">
+                        <div className="absolute inset-0 opacity-20">
+                          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-emerald-500/20 rounded-full blur-3xl animate-pulse" />
+                          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-emerald-600/10 rounded-full blur-3xl animate-pulse delay-1000" />
+                        </div>
+                      </div>
+                    )}
+                    {/* Gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/20" />
 
-                    {/* Client Logo/Title Overlay */}
-                    <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8">
-                      <span className="text-emerald-500 text-sm md:text-base uppercase tracking-[0.3em] font-bold mb-4">
-                        {project.client}
-                      </span>
-                      <h3 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white mb-6">
-                        {project.title}
-                      </h3>
-                      <p className="text-zinc-400 text-sm md:text-base max-w-xl mb-8">
-                        {project.description}
-                      </p>
-
-                      {/* Play Button */}
+                    {/* Play Button */}
+                    <div className="absolute inset-0 flex items-center justify-center">
                       <button
                         onClick={() => setIsPlaying(true)}
-                        className="group relative w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/10 border border-white/20 flex items-center justify-center hover:bg-white/20 hover:scale-105 transition-all duration-300"
+                        className="group relative w-20 h-20 md:w-24 md:h-24 rounded-full bg-black/40 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-black/60 hover:scale-105 transition-all duration-300"
                         aria-label="Play video"
                       >
                         <svg
@@ -92,6 +93,11 @@ const AideatrProduction: React.FC = () => {
                         </svg>
                         <div className="absolute inset-0 rounded-full border border-white/30 animate-ping opacity-30" />
                       </button>
+                    </div>
+
+                    {/* Client badge */}
+                    <div className="absolute top-6 left-6 px-3 py-1 bg-black/60 backdrop-blur-sm border border-zinc-700 text-emerald-500 text-xs font-bold uppercase tracking-widest">
+                      {project.client}
                     </div>
                   </div>
 
