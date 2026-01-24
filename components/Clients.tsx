@@ -79,16 +79,38 @@ const Clients: React.FC = () => {
     {
       name: "aideatr",
       logo: (
-        <div className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-700 rounded-lg flex items-center justify-center">
-            <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-          </div>
-          <div className="text-left">
-            <span className="text-white font-black text-sm md:text-base tracking-tight block leading-tight">aideatr</span>
-            <span className="text-zinc-500 text-[10px] uppercase tracking-widest">AI Platform</span>
-          </div>
+        <div className="flex items-center">
+          <svg className="w-32 h-12" viewBox="0 0 140 50" fill="none">
+            {/* Top green arc */}
+            <path
+              d="M25 12 Q70 -5 115 12"
+              stroke="#1B7F37"
+              strokeWidth="4"
+              strokeLinecap="round"
+              fill="none"
+            />
+            {/* Bottom green arc */}
+            <path
+              d="M25 38 Q70 55 115 38"
+              stroke="#1B7F37"
+              strokeWidth="4"
+              strokeLinecap="round"
+              fill="none"
+            />
+            {/* Red text "aideatr" */}
+            <text
+              x="70"
+              y="32"
+              textAnchor="middle"
+              fill="#E31B23"
+              fontFamily="Arial, sans-serif"
+              fontSize="22"
+              fontWeight="bold"
+              fontStyle="italic"
+            >
+              aideatr
+            </text>
+          </svg>
         </div>
       )
     }
