@@ -47,13 +47,31 @@ const Clients: React.FC = () => {
     {
       name: "Burwood Football Club",
       logo: (
-        <div className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center border-2 border-blue-400">
-            <span className="text-white font-black text-lg">BFC</span>
-          </div>
+        <div className="flex items-center gap-3">
+          {/* Circular badge with player */}
+          <svg className="w-14 h-14" viewBox="0 0 80 80" fill="none">
+            {/* Navy blue circle */}
+            <circle cx="40" cy="40" r="38" fill="#2B4075" />
+            {/* White ring */}
+            <circle cx="40" cy="40" r="30" stroke="white" strokeWidth="2" fill="none" />
+            {/* Motion streaks */}
+            <path d="M8 32L22 38L8 44" fill="#F5B041" />
+            <path d="M4 38L18 42L4 46" fill="#F5B041" opacity="0.7" />
+            {/* Player silhouette - simplified kicking figure */}
+            <g fill="#F5B041">
+              {/* Head */}
+              <circle cx="44" cy="28" r="5" />
+              {/* Body */}
+              <path d="M42 33C42 33 38 42 40 48C42 54 44 52 44 52L48 44L52 48L56 42L50 38L46 33L42 33Z" />
+              {/* Kicking leg */}
+              <path d="M40 48L32 56L28 54" strokeWidth="4" stroke="#F5B041" strokeLinecap="round" />
+              {/* Ball */}
+              <circle cx="26" cy="56" r="4" />
+            </g>
+          </svg>
           <div className="text-left">
-            <span className="text-white font-black text-sm md:text-base uppercase tracking-tight block leading-tight">Burwood</span>
-            <span className="text-zinc-500 text-[10px] uppercase tracking-widest">Football Club</span>
+            <span className="text-[#F5B041] font-black text-sm md:text-base uppercase tracking-wide block leading-tight">Burwood</span>
+            <span className="text-zinc-400 text-[10px] uppercase tracking-[0.15em]">Football Club</span>
           </div>
         </div>
       )
