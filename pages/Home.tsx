@@ -6,6 +6,7 @@ import WorkGrid from '../components/WorkGrid';
 import FeaturedProduction from '../components/FeaturedProduction';
 import Testimonials from '../components/Testimonials';
 import SportsProduction from '../components/SportsProduction';
+import AideatrProduction from '../components/AideatrProduction';
 
 interface HomeProps {
   onStartProject: () => void;
@@ -26,6 +27,8 @@ const Home: React.FC<HomeProps> = ({ onStartProject }) => {
       {/* Featured Production 02 - Sports */}
       <SportsProduction />
 
+      {/* Featured Production 03 - aideatr SaaS */}
+      <AideatrProduction />
 
       {/* Testimonials */}
       <Testimonials />

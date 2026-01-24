@@ -3,6 +3,7 @@ import React from 'react';
 import WorkGrid from '../components/WorkGrid';
 import FeaturedProduction from '../components/FeaturedProduction';
 import SportsProduction from '../components/SportsProduction';
+import AideatrProduction from '../components/AideatrProduction';
 
 const Portfolio: React.FC = () => {
   return (
@@ -24,7 +25,10 @@ const Portfolio: React.FC = () => {
 
       {/* Featured Production Section 02 - Burwood FC */}
       <SportsProduction />
-      
+
+      {/* Featured Production Section 03 - aideatr */}
+      <AideatrProduction />
+
       <div className="max-w-7xl mx-auto px-6 md:px-12 mt-32">
         <div className="mb-20 text-center">
             <span className="text-[10px] uppercase tracking-[0.4em] text-zinc-600 font-bold mb-4 block">Social Feed</span>
